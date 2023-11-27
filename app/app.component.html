@@ -1,0 +1,7 @@
+<div class="wrapper dark-mode">
+    <app-header></app-header>
+    <app-sidebar></app-sidebar>
+    <div [ngClass]="withBorder ? 'content-wrapper px-4 py-2' : 'content-wrapper'">
+        <router-outlet></router-outlet>
+    </div>
+</div>

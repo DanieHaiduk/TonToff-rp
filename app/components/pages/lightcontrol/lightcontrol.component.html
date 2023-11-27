@@ -1,0 +1,40 @@
+<body [ngClass]="room.on ? 'on' : ''" [style.filter]="'brightness('+ room.brightness +'%)'">
+    <button (click)="lightBulb()">
+        <div class="light-bulb">
+            <div class="upper">
+                <div class="circle">
+                    <div class="line-1">
+                        <div class="line-c"></div>
+                    </div>
+                    <div class="line-2">
+                        <div class="line-c"></div>
+                    </div>
+                    <div class="circle-bottom"></div>
+                </div>
+            </div>
+            <div class="lower">
+                <div class="lower-1">
+                    <div class="lower-line"></div>
+                    <div class="lower-line" style="width: 30%"></div>
+                    <div class="lower-line"></div>
+                </div>
+                <div class="lower-2">
+                    <div class="lower-2-inner">
+                        <div class="lower-2-lines"></div>
+                        <div class="lower-2-circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </button>
+    <div id="selectrooms" class="abs-profiles">
+        <select class="form-control" [ngModel]="room" (ngModelChange)="setCurrentRoom($event)">
+            <option *ngFor="let r of rooms" [ngValue]="r">
+                {{r.name}}
+            </option>
+        </select>
+        <div class="slider">
+            <input type="range" min="100" max="200" [(ngModel)]="room.brightness" [disabled]="!room.on" />
+        </div>
+    </div>
+</body>
